@@ -13,7 +13,7 @@ struct cliente {
     double ingresosMensuales;
     double deudasActuales;
     int activo;             // 1=activo, 0=eliminado
-} 
+}; 
 
 // ==================== USUARIO BANCO (EMPLEADO/ADMINISTRADOR) ====================
 struct empleado {
@@ -23,7 +23,7 @@ struct empleado {
     char password[50];
     int rol;                // 1=Administrador, 2=Empleado
     int activo;
-} 
+}; 
 
 // ==================== TRANSACCIÓN ====================
 struct transaccion {
@@ -35,7 +35,7 @@ struct transaccion {
     double monto;
     double saldoDespues;
     char descripcion[150];
-} 
+}; 
 
 // ==================== CUENTA DE AHORRO ====================
 struct cuenta_ahorro  {
@@ -45,11 +45,11 @@ struct cuenta_ahorro  {
     double saldo;
     double tasaInteresMensual;   // 0.009489 por defecto
     char fechaApertura[20];  // revisar!!
-    Transaccion* transacciones;  // arreglo dinámico
+    transaccion* transacciones;  // arreglo dinámico
     int numTransacciones;
     int capTransacciones; // capacidad para memoria dinamica
     int activa;
-} 
+}; 
 
 // ==================== CUENTA CORRIENTE ====================
 struct cuenta_corriente {
@@ -61,11 +61,11 @@ struct cuenta_corriente {
     char fechaSobregiro[20];     // fecha en que se generó el sobregiro
     int tieneSobregiro;          // 1=si, 0=no
     char fechaApertura[20];
-    Transaccion* transacciones;
+    transaccion* transacciones;
     int numTransacciones;
     int capTransacciones;
     int activa;
-} 
+}; 
 
 // ==================== CRÉDITO ====================
 struct credito{
@@ -78,10 +78,10 @@ struct credito{
     int plazoMeses;
     char fechaAprobacion[20];
     int estado;                  // 1=Pendiente, 2=Aprobado, 3=Rechazado, 4=Pagado
-    Transaccion* transacciones;
+    transaccion* transacciones;
     int numTransacciones;
     int capTransacciones;
-} 
+}; 
 
 // ==================== CDT ====================
 struct cdt {
@@ -97,10 +97,10 @@ struct cdt {
     int estado;                  // 1=Activo, 2=Cancelado, 3=Vencido
     int idCuentaOrigen;          // cuenta de donde salió el dinero
     int tipoCuentaOrigen;        // 1=Ahorro, 2=Corriente
-    Transaccion* transacciones;
+    transaccion* transacciones;
     int numTransacciones;
     int capTransacciones;
-} 
+};
 
 
 // ==================== EXTRACTO ====================
@@ -112,9 +112,9 @@ struct extracto {
     double saldoInicial;
     double saldoFinal;
     double liquidacion; 
-    Transaccion* transacciones;
+    transaccion* transacciones;
     int numTransacciones;
-} 
+}; 
 
 
 // Archivo deberan ir en el mismo orden que las estructuras pero separadas por (;)
